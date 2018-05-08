@@ -3,6 +3,9 @@
     <h1>vue-components</h1>
     <ul class="main-ul" >
       <li><router-link to="/select">下拉列表(select)</router-link></li>
+      <li><router-link to="/countdown">倒计时(countdown)</router-link></li>
+      <li><router-link to="/countdown2">倒计时2(countdown2)</router-link></li>
+      <li><router-link to="/dropDown">查看更多下拉组件(countdown)</router-link></li>
     </ul>
    
   </div>

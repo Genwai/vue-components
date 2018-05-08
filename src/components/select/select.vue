@@ -1,25 +1,62 @@
 <template>
   <div class="select container">
-      <div class="content">
-          <span class="text">123</span>
+      <div class="content" @click="selectShows">
+          <span class="text">{{selectList[nowIndex].text}}</span>
           <div class="trangle"></div>
       </div>
-      <ul class="select-list border-bottom">
-          <li class="select-item">122</li>
-          <li>2222</li>
-      </ul>
+
+      <transition name="fade">
+        <div class="select-container">
+            <ul class="select-list border-bottom" v-show="selectShow">
+                <li class="select-item" v-for="(item,index) in selectList" 
+                :key="item.index"
+                @click="select(index)"
+                >{{item.text}}</li>
+            </ul>
+        </div>
+      </transition>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 export default {
+    props: {
+        selectList:{
+            type:Array,
+            default:[]
+        }
+    },
   data() {
     return {
-
+       
+         selectShow:false,//是否点击下拉的内容
+         nowIndex : 0, // 当前选中的index的值
     }
   },
-  components: {
-
+  methods: {
+    selectShows(){
+        this.selectShow = !this.selectShow;
+        console.log('showlist', this.selectShow)
+    },
+    select(index){
+        this.nowIndex = index;
+        this.selectShow =false;
+    },
+    afterEnter: function (el) {
+      el.style.opacity = 0
+    //   el.style.transformOrigin = 'left'
+    },
+    leave(){
+        alert('leave')
+    }  
+  },
+  mounted(){
+    //   父组件传进来的selected是要先选中哪一个
+      for (const key in this.selectList) {
+          if (this.selectList[key].selected) {
+              this.nowIndex = key
+          }
+      }
   }
 }
 </script>
@@ -37,8 +74,8 @@ export default {
             background #ffffff 
             border-radius 8px
             padding-left 10px
-            height 25px
-            line-height 25px
+            height 30px
+            line-height 30px
         .trangle
             width 0
             height 0
@@ -49,24 +86,24 @@ export default {
             border-left 5px solid transparent
             border-right 5px solid transparent
             border-bottom 5px solid transparent
+    &.fade-enter-active,.fade-leave-active
+        transition all 0.3 ease 
+    &.fade-enter,.fade-leave-to
+        opacity 0
     .select-list
         background #ffffff;
-        padding-left 10px
         border-radius 10px
-        .list-item
+        .select-item
             position relative
-            &:after
-                display block
-                content ""
-                position absolute
-                top 0px
-                bottom 0px
-                width 100%
-                border 1px solid red
-            @media(-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
-                transform scaleY(0.33)
-            @media(-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)
-                transform scaleY(0.5)
+            height 30px
+            line-height 30px
+            font-size 14px
+            display block
+            border-1px(#c0c4cc)
+            padding-left 10px
+            &:last-child 
+                border-none()
+    
             
 
 

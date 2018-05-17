@@ -6,6 +6,8 @@
       <li><router-link to="/countdown">倒计时(countdown)</router-link></li>
       <li><router-link to="/countdown2">倒计时2(countdown2)</router-link></li>
       <li><router-link to="/dropDown">查看更多下拉组件(countdown)</router-link></li>
+      <li><router-link to="/search">搜索(search)</router-link></li>
+      <li><router-link to="/actionsheet">底部弹框(action-sheet)</router-link></li>
     </ul>
    
   </div>
@@ -28,6 +30,7 @@ export default {
   h1
     font-size 30px
     text-align center
+    margin-bottom 20px
   .main-ul
     text-align center
     font-size 20px

@@ -5,6 +5,11 @@ import select from '@/pages/Select'
 import countdown from '@/pages/countdown'
 import countdown2 from '@/pages/countdown2'
 import dropDown from '@/pages/dropDown'
+import search from '@/pages/search'
+
+import actionsheet from '@/pages/action-sheet'
+
+
 
 Vue.use(Router)
 
@@ -29,5 +34,19 @@ export default new Router({
         path: '/countdown2',
         name: 'countdown2',
         component: countdown2
+    }, {
+        path: '/search',
+        name: 'search',
+
+        component: search
+
+    }, {
+        path: '/actionsheet',
+        name: 'actionsheet',
+        component: actionsheet
+
+
     }]
+
+
 })

@@ -5,13 +5,13 @@
           <h1 class="title">下拉的标题</h1>
           <div class="drop-text" :style="'height:'+ ShowHeight +'px'">
               <div class="text" ref="reference" >
-                 <p> W3C 标准中有如下规定： When there is only one single-line text input field in a form, the user agent should accept Enter in
-              that field as a request to submit the form. 即：当一个 form 元素中只有一个输入框时，在该输入框中按下回车应提交该表单。如果希望阻止这一默认行为，可以在 标签上添加 @submit.native.prevent。
-                </p>
+                  <slot></slot>
+                
               </div>
           </div>
           <div class="add-more" @click="showMore">{{!show ? "查看更多" :"隐藏"}}</div>
       </div>
+      
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   data() {
     return {
         dropHeight:0,
-        show:true,
+        show:false,
         height:60,
     }
   },
@@ -32,11 +32,12 @@ export default {
   },
   computed:{
       ShowHeight(){
-          if (this.show) {
-              return this.dropHeight;
-          }else {
-              return this.height
-          }
+        //   if (this.show) {
+        //       return this.dropHeight;
+        //   }else {
+        //       return this.height
+        //   }
+          return this.show? this.dropHeight:this.height
       }
   },
   methods: {
@@ -66,6 +67,8 @@ export default {
             background-color #F2F6FC
             overflow hidden
             transition 0.5s 
+            img 
+                width 64px
 
 
 

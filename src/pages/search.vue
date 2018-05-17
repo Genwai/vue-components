@@ -1,13 +1,11 @@
 <template>
-  <div class="container">
-      <h1>倒计时2</h1>
-      <div class="countdowns">
-          <span>倒计时剩余{{day}}{{hover}}</span>
-      </div>
+  <div class="page">
+      <home-search></home-search>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import homeSearch from '../components/search/index'
 export default {
   data() {
     return {
@@ -15,7 +13,7 @@ export default {
     }
   },
   components: {
-      
+    homeSearch
   }
 }
 </script>

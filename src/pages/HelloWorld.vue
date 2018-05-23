@@ -8,6 +8,7 @@
       <li><router-link to="/dropDown">查看更多下拉组件(countdown)</router-link></li>
       <li><router-link to="/search">搜索(search)</router-link></li>
       <li><router-link to="/actionsheet">底部弹框(action-sheet)</router-link></li>
+      <li><router-link to="/touchme">觸摸拖動(touch-me)</router-link></li>
     </ul>
    
   </div>

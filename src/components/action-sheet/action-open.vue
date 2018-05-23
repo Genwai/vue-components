@@ -4,6 +4,9 @@
       <div class="btnDiv">
           <button class="openBtn">弹出2</button>
       </div>
+      <div class="">
+
+      </div>
   </div>
 </template>
 
